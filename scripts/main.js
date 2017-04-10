@@ -1,13 +1,20 @@
-function draw() {
+function draw(length) {
     var canvas = document.getElementById('canvas');
     if (canvas.getContext){
         var ctx = canvas.getContext('2d');
 
-        ctx.beginPath();
-        ctx.moveTo(75,50);
-        ctx.lineTo(100,75);
-        ctx.lineTo(100,25);
-        ctx.fill();
+        ctx.strokeRect(0,0,length,length)
     }
 }
-window.draw();
+
+document.getElementById('submit').onclick = function() {
+    var length = parseInt(document.getElementById('length').value);
+    window.draw(length);
+};
+
+document.getElementById('clear').onclick = function() {
+    var length = parseInt(document.getElementById('length').value);
+    window.draw(length);
+};
+
+
